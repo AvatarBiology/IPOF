@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPOF 分析學習單</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans, "Helvetica Neue", Helvetica, Arial, "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif);}
+.ws{max-width:720px;margin:0 auto;padding:1.5rem 1rem}
+.header{text-align:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:0.5px solid #E0E0E0}
+.header-title{font-size:22px;font-weight:500;color:#333;margin-bottom:4px}
+.header-sub{font-size:13px;color:#666}
+.topic-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.25rem}
+.field{background:#FFF;border:0.5px solid #E0E0E0;border-radius:8px;padding:12px 14px}
+.field-label{font-size:11px;color:#666;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.field-input{width:100%;border:none;background:transparent;font-size:14px;color:#333;font-family:inherit;outline:none;min-height:28px}
+.ipof-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:1.25rem}
+.card{background:#FFF;border:0.5px solid #E0E0E0;border-radius:12px;overflow:hidden}
+.card-head{padding:12px 14px 10px;border-bottom:0.5px solid #E0E0E0}
+.badge{display:inline-flex;align-items:center;gap:6px;margin-bottom:6px}
+.letter{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500}
+.l-i{background:#EEEDFE;color:#3C3489}
+.l-p{background:#E1F5EE;color:#085041}
+.l-o{background:#FAEEDA;color:#633806}
+.l-f{background:#FBEAF0;color:#72243E}
+.card-name{font-size:15px;font-weight:500;color:#333;margin-bottom:2px}
+.card-hint{font-size:12px;color:#666}
+.card-body{padding:12px 14px}
+.hint-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chip{font-size:11px;padding:3px 8px;border-radius:20px;border:0.5px solid #E0E0E0;color:#666;background:#F9F9F9}
+.textarea{width:100%;border:0.5px solid #E0E0E0;border-radius:8px;background:#F9F9F9;font-size:13px;color:#333;font-family:inherit;padding:10px 12px;resize:vertical;outline:none;min-height:90px;line-height:1.6}
+.textarea:focus{border-color:#999}
+.reflect{background:#FFF;border:0.5px solid #E0E0E0;border-radius:12px;padding:14px;margin-bottom:1.25rem}
+.reflect-title{font-size:14px;font-weight:500;color:#333;margin-bottom:10px}
+.reflect-q{font-size:13px;color:#666;margin-bottom:6px}
+.reflect-input{width:100%;border:0.5px solid #E0E0E0;border-radius:8px;background:#F9F9F9;font-size:13px;color:#333;font-family:inherit;padding:8px 12px;resize:vertical;outline:none;min-height:60px;line-height:1.6;margin-bottom:10px}
+.reflect-input:focus{border-color:#999}
+.footer-row{display:flex;gap:10px;align-items:center;justify-content:space-between;padding-top:1rem;border-top:0.5px solid #E0E0E0}
+.footer-note{font-size:12px;color:#999}
+.btn-group {display: flex; gap: 10px;}
+.btn-print{font-size:13px;padding:7px 16px;border-radius:8px;border:0.5px solid #999;background:transparent;color:#333;cursor:pointer;font-family:inherit}
+.btn-print:hover{background:#F9F9F9}
+.btn-submit{font-size:13px;padding:7px 16px;border-radius:8px;border:none;background:#3C3489;color:#FFF;cursor:pointer;font-family:inherit;font-weight:500;transition: background 0.3s;}
+.btn-submit:hover{background:#2a2460}
+.btn-submit:disabled{background:#A0A0A0;cursor:not-allowed}
+.fullw{grid-column:1/-1}
+@media print{.btn-print, .btn-submit, .footer-note{display:none}.ws{padding:0}}
+@media(max-width:520px){.ipof-grid,.topic-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="ws">
+  <h2 class="sr-only" style="display:none;">IPOF 課程學習單 ─ 爆學環第三階段規劃目標</h2>
+
+  <div class="header">
+    <div class="header-title">爆學地圖 ─ IPOF 分析學習單</div>
+    <div class="header-sub">階段三：規劃目標　　讓願望落地，成為具體可行的目標</div>
+  </div>
+
+  <div class="topic-row">
+    <div class="field">
+      <div class="field-label">姓名</div>
+      <input class="field-input" id="st-name" placeholder="請填入姓名" />
+    </div>
+    <div class="field">
+      <div class="field-label">班級 / 座號</div>
+      <input class="field-input" id="st-class" placeholder="例：三年一班 12 號" />
+    </div>
+    <div class="field">
+      <div class="field-label">自主學習主題</div>
+      <input class="field-input" id="st-topic" placeholder="例：做一首日文 rap" />
+    </div>
+    <div class="field">
+      <div class="field-label">日期</div>
+      <input class="field-input" id="st-date" type="date" />
+    </div>
+  </div>
+
+  <div class="ipof-grid">
+    <div class="card">
+      <div class="card-head">
+        <div class="badge"><div class="letter l-i">I</div></div>
+        <div class="card-name">Input　資源</div>
+        <div class="card-hint">要達成目標，我需要哪些資源或工具？</div>
+      </div>
+      <div class="card-body">
+        <div class="hint-chips">
+          <span class="chip">書籍 / 教科書</span><span class="chip">YouTube</span>
+          <span class="chip">論文 / 文章</span><span class="chip">App / 工具</span><span class="chip">課程平台</span>
+        </div>
+        <textarea class="textarea" id="ipof-i" placeholder="列出你打算使用的學習資源（書名、網站、頻道等），越具體越好。"></textarea>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="badge"><div class="letter l-p">P</div></div>
+        <div class="card-name">Process　方法</div>
+        <div class="card-hint">我要如何有效地學習？步驟是什麼？</div>
+      </div>
+      <div class="card-body">
+        <div class="hint-chips">
+          <span class="chip">看影片學基礎</span><span class="chip">案例分析</span>
+          <span class="chip">實作練習</span><span class="chip">訪談 / 觀察</span><span class="chip">模仿與改造</span>
+        </div>
+        <textarea class="textarea" id="ipof-p" placeholder="描述你的學習步驟或方法，例如：先看五十音教學影片，再分析三首歌的歌詞結構…"></textarea>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="badge"><div class="letter l-o">O</div></div>
+        <div class="card-name">Outcome　成果</div>
+        <div class="card-hint">學完後，我希望呈現什麼樣的成果？</div>
+      </div>
+      <div class="card-body">
+        <div class="hint-chips">
+          <span class="chip">影片作品</span><span class="chip">簡報 / 海報</span>
+          <span class="chip">文章 / 報告</span><span class="chip">IG / 社群貼文</span><span class="chip">展示 / 表演</span>
+        </div>
+        <textarea class="textarea" id="ipof-o" placeholder="想像期末呈現的畫面，盡量具體描述成果的形式與內容。"></textarea>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="badge"><div class="letter l-f">F</div></div>
+        <div class="card-name">Feedback　回饋</div>
+        <div class="card-hint">過程中如何確認學習成效？</div>
+      </div>
+      <div class="card-body">
+        <div class="hint-chips">
+          <span class="chip">找老師討論</span><span class="chip">同儕互評</span>
+          <span class="chip">社群留言 / 數據</span><span class="chip">自我測驗</span><span class="chip">請專家指導</span>
+        </div>
+        <textarea class="textarea" id="ipof-f" placeholder="說明你打算怎麼蒐集回饋、確認自己走在正確方向上。"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="reflect">
+    <div class="reflect-title">反思與連結：為「大拆特拆」暖身</div>
+    <div class="reflect-q">1. 在四個要素中，你覺得最容易確定的是哪一項？為什麼？</div>
+    <textarea class="reflect-input" id="ref-1" placeholder="自由作答…"></textarea>
+    <div class="reflect-q">2. 你覺得最有挑戰性的是哪一項？你打算怎麼解決它？</div>
+    <textarea class="reflect-input" id="ref-2" placeholder="自由作答…"></textarea>
+    <div class="reflect-q">3. 如果要把你的學習主題比喻成一份「美食套餐」，你的 O（成果）是哪道主菜？</div>
+    <textarea class="reflect-input" id="ref-3" placeholder="自由作答…"></textarea>
+  </div>
+
+  <div class="footer-row">
+    <div class="footer-note">完成後交給老師，或保存為「大拆特拆」的參考依據。</div>
+    <div class="btn-group">
+      <button class="btn-print" onclick="window.print()">列印</button>
+      <button class="btn-submit" id="btn-submit" onclick="submitData()">提交作業</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 請將下方字串替換為你 GAS 部署後取得的 Web App URL
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycby4cAU_Z8GJU5Xqk8qCP83yMA_SXSlQBpb_Fk_r8NKUbWs8DvzFD_T8VAujEjHgz-S6/exec'; 
+
+  async function submitData() {
+    // 1. 取得所有欄位資料並去除前後空白
+    const data = {
+      name: document.getElementById('st-name').value.trim(),
+      classNum: document.getElementById('st-class').value.trim(),
+      topic: document.getElementById('st-topic').value.trim(),
+      date: document.getElementById('st-date').value.trim(),
+      input: document.getElementById('ipof-i').value.trim(),
+      process: document.getElementById('ipof-p').value.trim(),
+      outcome: document.getElementById('ipof-o').value.trim(),
+      feedback: document.getElementById('ipof-f').value.trim(),
+      ref1: document.getElementById('ref-1').value.trim(),
+      ref2: document.getElementById('ref-2').value.trim(),
+      ref3: document.getElementById('ref-3').value.trim()
+    };
+
+    // 2. 驗證1：是否有未填寫的欄位
+    for (const key in data) {
+      if (data[key] === '') {
+        alert('請確認「所有欄位」皆已填寫完畢再提交喔！');
+        return; 
+      }
+    }
+
+    // 3. 驗證2：IPOF 各欄位是否達 20 字
+    if (data.input.length < 20 || data.process.length < 20 || data.outcome.length < 20 || data.feedback.length < 20) {
+      alert('請注意：Input、Process、Outcome、Feedback 四個欄位，每個欄位的內容都不可少於 20 個字喔！請再多加補充。');
+      return;
+    }
+
+    // 4. 變更按鈕狀態，避免學生重複點擊
+    const btn = document.getElementById('btn-submit');
+    btn.innerText = '提交中...';
+    btn.disabled = true;
+
+    // 5. 傳送資料到 GAS
+    try {
+      const response = await fetch(GAS_URL, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        // 使用 text/plain 避免跨網域 (CORS) 阻擋問題
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        }
+      });
+      
+      const result = await response.json();
+      
+      if(result.status === 'success') {
+        alert('作業提交成功！辛苦了！');
+        // 可選：提交成功後清空表單
+        // window.location.reload(); 
+      } else {
+        alert('提交失敗，請告知老師這個錯誤：' + result.message);
+      }
+    } catch (error) {
+      alert('網路連線異常，提交失敗！請檢查網路後再試一次。');
+      console.error(error);
+    } finally {
+      // 恢復按鈕狀態
+      btn.innerText = '提交作業';
+      btn.disabled = false;
+    }
+  }
+</script>
+</body>
+</html>
